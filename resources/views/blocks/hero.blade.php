@@ -1,14 +1,19 @@
 <section class="{{ $block->classes }}" style="{{ $block->inlineStyle }}" >
 <div class="flex mt-0 pb-4 lg:my-8 px-4 md:px-2">
     <div class="relative z-10 w-full md:w-2/3 mt-4 lg:mt-16">
+      @if($hero_title)
       <h1
         class="text-3xl lg:text-4xl lg:leading-relaxed font-semibold leading-snug text-gray-900"
       >
         {{$hero_title}}
       </h1>
+      @endif
+      @if($hero_description)
       <p class="text-base mt-4 text-slate-700 leading-relaxed">
         {{ $hero_description }}
       </p>
+      @endif
+      @if($social_links)
       <div class="flex items-center justify-start mt-8">
         @foreach ($social_links as $social_link)
           <a
@@ -27,7 +32,9 @@
         @endforeach
 
       </div>
+      @endif
     </div>
+    @if($skills_logo)
     <div class="skills__container hidden md:block relative ml-8 w-1/3">
     @foreach($skills_logo as $skills_logo)
     <div class="skills__container-card ">
@@ -45,5 +52,6 @@
       </div>
       @endforeach
     </div>
+    @endif
   </div>
 </section>
