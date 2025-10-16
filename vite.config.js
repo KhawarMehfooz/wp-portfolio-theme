@@ -5,6 +5,15 @@ import { wordpressPlugin, wordpressThemeJson } from '@roots/vite-plugin';
 
 export default defineConfig({
   base: '/app/themes/khwr-portfolio/public/build/',
+  server: {
+    host: 'localhost', 
+    port: 5173,
+    origin: 'http://localhost:5173',
+    cors: true, 
+    hmr: {
+      host: 'localhost',
+    },
+  },
   plugins: [
     tailwindcss(),
     laravel({
