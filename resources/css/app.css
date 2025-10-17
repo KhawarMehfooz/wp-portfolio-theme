@@ -147,6 +147,11 @@
     border-width: 1px;
   }
 
+    .border-dashed-subtle-default {
+    border-style: dashed;
+    border-width: 1px;
+  }
+
   .hover-border-dashed-subtle:hover {
     border-style: dashed;
     border-color: hsl(var(--color-border-hover));
