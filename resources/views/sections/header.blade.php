@@ -1,6 +1,6 @@
 <header x-data="{ open: false }"
-  class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b px-6">
-  <div class="container mx-auto border-l border-r px-6 py-2 md:py-4">
+  class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/50 px-6">
+  <div class="container mx-auto border-l border-r border-border/50 px-6 py-2 md:py-4">
     <div class="flex items-center justify-between">
       {{-- Brand / Site Name --}}
       <a href="{{ home_url('/') }}"
@@ -49,7 +49,7 @@
     </div>
     {{-- Mobile Dropdown --}}
     <div x-show="open" x-transition
-      class="md:hidden mt-4 flex flex-col gap-3 border-t border-border p-4 border border-l border-r border-b"
+      class="md:hidden mt-4 flex flex-col gap-3 border-t border-border/50 py-4 border-b"
       aria-label="Mobile Navigation">
       {!! wp_nav_menu([
   'theme_location' => 'primary_navigation',

@@ -1,11 +1,11 @@
 @unless ($block->preview)
-  <section {{ $attributes->merge(['class' => 'px-6 border-b']) }}>
+  <section {{ $attributes->merge(['class' => 'px-6 border-b border-border/50']) }}>
   @else
-    <section class="px-6 border border-b">
+    <section class="px-6 border border-b border-border/50">
 @endunless
 
     @if (!empty($stats))
-      <div class="container mx-auto py-16 border-l border-r">
+      <div class="container mx-auto py-16 border-l border-r border-border/50 ">
         @php
         $cols = min(count($stats), 4);
         $gridClass = match ($cols) {

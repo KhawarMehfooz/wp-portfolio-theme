@@ -1,10 +1,10 @@
 @unless ($block->preview)
-  <section {{ $attributes->merge(['class' => 'relative px-6 overflow-hidden border-b']) }}>
+  <section {{ $attributes->merge(['class' => 'relative px-6 overflow-hidden border-b border-border/50']) }}>
   @else
     <section class="relative px-6 overflow-hidden border-b">
 @endunless
 
-    <div class="container mx-auto py-30 relative z-10 border-l border-r grid-background ">
+    <div class="container mx-auto py-30 relative z-10 border-l border-r border-border/50 grid-background-7 ">
       <div class="max-w-3xl mx-auto animate-fade-in-up text-center">
         <h1 class="font-display text-3xl md:text-4xl lg:text-6xl text-center font-bold mb-6 tracking-tight">
           {{ $items['hero_heading'] }}
