@@ -44,6 +44,9 @@
   --grid-color: hsl(240 10% 92%);
   --grid-size: 32px;
 
+  --grid-line-color: rgba(120, 120, 120, 0.15);
+
+
   @keyframes accordion-down {
     from {
       height: 0
@@ -147,7 +150,7 @@
     border-width: 1px;
   }
 
-    .border-dashed-subtle-default {
+  .border-dashed-subtle-default {
     border-style: dashed;
     border-width: 1px;
   }
@@ -184,8 +187,117 @@
   .link-underline:hover::after {
     width: 100%;
   }
-  .md\:grid-cols-1 {}
-  .md\:grid-cols-2 {}
-  .md\:grid-cols-3 {}
-  .md\:grid-cols-4 {}
+
+  .text-muted-foreground {
+    color: var(--color-muted-foreground);
+  }
+
+  .grid-background-2-old {
+    background-color: transparent;
+    background-image:
+      repeating-linear-gradient(45deg,
+        rgba(0, 0, 0, 0.05) 0,
+        rgba(0, 0, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 20px),
+      repeating-linear-gradient(-45deg,
+        rgba(0, 0, 0, 0.05) 0,
+        rgba(0, 0, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 20px);
+  }
+
+  /* Fine diagonal lines (tight spacing, subtle) */
+  .grid-background-1 {
+    background-image: repeating-linear-gradient(45deg,
+        var(--grid-line-color) 0,
+        var(--grid-line-color) 1px,
+        transparent 1px,
+        transparent 16px),
+      repeating-linear-gradient(-45deg,
+        var(--grid-line-color) 0,
+        var(--grid-line-color) 1px,
+        transparent 1px,
+        transparent 16px);
+    background-color: transparent;
+  }
+
+  /* Wider diagonal grid (more open spacing) */
+  .grid-background-2 {
+    background-image: repeating-linear-gradient(45deg,
+        var(--grid-line-color) 0,
+        var(--grid-line-color) 1px,
+        transparent 1px,
+        transparent 32px),
+      repeating-linear-gradient(-45deg,
+        var(--grid-line-color) 0,
+        var(--grid-line-color) 1px,
+        transparent 1px,
+        transparent 32px);
+    background-color: transparent;
+  }
+
+  /* Soft single-direction diagonal lines (no crosshatch) */
+  .grid-background-3 {
+    background-image: repeating-linear-gradient(45deg,
+        var(--grid-line-color) 0,
+        var(--grid-line-color) 1px,
+        transparent 1px,
+        transparent 24px);
+    background-color: transparent;
+  }
+
+  /* Honeycomb illusion (hex-style pattern) */
+  .grid-background-5 {
+    background-color: transparent;
+    background-image:
+      linear-gradient(30deg, var(--grid-line-color) 12%, transparent 12.5%, transparent 87%, var(--grid-line-color) 87.5%, var(--grid-line-color)),
+      linear-gradient(150deg, var(--grid-line-color) 12%, transparent 12.5%, transparent 87%, var(--grid-line-color) 87.5%, var(--grid-line-color)),
+      linear-gradient(90deg, var(--grid-line-color) 12%, transparent 12.5%, transparent 87%, var(--grid-line-color) 87.5%, var(--grid-line-color));
+    background-size: 40px 70px;
+    background-position: 0 0, 0 0, 20px 35px;
+  }
+
+  /* Wavy diagonal lines (sine-wave feel using gradients) */
+  .grid-background-6 {
+    background-color: transparent;
+    background-image:
+      repeating-linear-gradient(45deg,
+        var(--grid-line-color) 0,
+        var(--grid-line-color) 1px,
+        transparent 1px,
+        transparent 24px),
+      repeating-linear-gradient(135deg,
+        var(--grid-line-color) 0,
+        var(--grid-line-color) 1px,
+        transparent 1px,
+        transparent 24px);
+    background-blend-mode: overlay;
+  }
+
+  /* Dot grid (like a notebook pattern) */
+  .grid-background-7 {
+    background-color: transparent;
+    background-image: radial-gradient(var(--grid-line-color) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Concentric circle grid (soft ripple feel) */
+  .grid-background-8 {
+    background-color: transparent;
+    background-image: radial-gradient(circle, var(--grid-line-color) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Subtle cross lines (fine intersecting dots) */
+  .grid-background-9 {
+    background-color: transparent;
+    background-image:
+      linear-gradient(var(--grid-line-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.6;
+  }
+
+
 }
