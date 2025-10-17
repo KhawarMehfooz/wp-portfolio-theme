@@ -21,7 +21,7 @@
     @include('sections.header')
 
     <main id="main" class="main">
-      <div class="min-h-screen">
+      <div class="">
         @yield('content')
       </div>
     </main>

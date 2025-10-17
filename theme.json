@@ -27,6 +27,7 @@
     },
     "spacing": {
       "padding": true,
+      "margin": true,
       "units": [
         "px",
         "%",

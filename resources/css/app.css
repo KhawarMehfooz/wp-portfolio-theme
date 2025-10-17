@@ -299,5 +299,9 @@
     opacity: 0.6;
   }
 
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+
 
 }
