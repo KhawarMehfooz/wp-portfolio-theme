@@ -12,12 +12,12 @@
             <div class="flex items-center gap-4 mb-6">
                 @php
                     $p_cat = get_the_terms(get_the_ID(), 'project_category');
-                  @endphp
-                    @if($p_cat && !is_wp_error($p_cat))
-                        <span class="text-sm font-semibold  text-primary">
-                            {{ $p_cat[0]->name }}
-                        </span>
-                    @endif
+                @endphp
+                @if ($p_cat && !is_wp_error($p_cat))
+                    <span class="text-sm font-semibold  text-primary">
+                        {{ $p_cat[0]->name }}
+                    </span>
+                @endif
 
                 <span class="text-sm text-muted-foreground"> {{ date('Y', strtotime(get_field('project_date'))) }}</span>
             </div>
@@ -27,11 +27,11 @@
                 <h2 class="font-display text-2xl font-semibold mb-6">Technologies Used</h2>
                 @php
                     $technologies = get_the_terms(get_the_ID(), 'technology');
-                  @endphp
+                @endphp
 
-                @if($technologies && !is_wp_error($technologies))
+                @if ($technologies && !is_wp_error($technologies))
                     <div class="flex flex-wrap gap-2">
-                        @foreach($technologies as $tech)
+                        @foreach ($technologies as $tech)
                             <span
                                 class="px-3 py-1.5 font-sans font-medium bg-secondary text-foreground text-sm rounded-sm border border-dashed-subtle-default">
                                 {{ $tech->name }}

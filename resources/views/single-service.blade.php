@@ -18,7 +18,6 @@
                 <span class=" text-primary [&>svg]:h-12 [&>svg]:w-12 [&>svg]:text-primary [&>svg]:mb-6">
                     {!! file_get_contents($icon_url) !!}
                 </span>
-
             @else
                 <img src="{{ $icon_url }}" alt="{{ $social['social_label'] }}" class="h-5 w-5" />
             @endif
