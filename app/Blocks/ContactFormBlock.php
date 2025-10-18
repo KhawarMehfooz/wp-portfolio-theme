@@ -47,7 +47,7 @@ class ContactFormBlock extends Block
      *
      * @var array
      */
-    public $post_types = ['page'];
+    public $post_types = ['page','service'];
 
     /**
      * The parent block type allow list.

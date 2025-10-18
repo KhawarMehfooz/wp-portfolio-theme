@@ -1,9 +1,9 @@
 @unless ($block->preview)
-    <section {{ $attributes->merge(['class' => 'px-6 border-b border-border/50']) }}>
+    <section {{ $attributes->merge(['class' => ' border-border/50']) }}>
     @else
         <section class="pt-7 px-6">
         @endunless
-        <div class="container mx-auto py-10 md:border-l md:border-r border-border/50">
+        <div class="container mx-auto py-10  border-border/50">
             <form id="contactForm" method="POST"
                 class="space-y-6 max-w-2xl mx-auto border border-dashed-subtle-default p-6">
                 @php wp_nonce_field('handle_contact_form', 'contact_form_nonce'); @endphp

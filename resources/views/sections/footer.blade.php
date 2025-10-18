@@ -1,4 +1,4 @@
-<footer class="relative px-6">
+<footer class="relative px-6 border-t border-border/50">
     <div class="container mx-auto px-6 py-10 border-l border-r border-border/50 grid-background-7">
         <div class="flex flex-col items-center text-center space-y-8">
             <div>

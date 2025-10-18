@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <main class="border-b border-border/50">
+    <main class="">
         <div class=" mx-auto max-w-4xl pt-20 px-6">
             <a class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
                 href="/projects"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

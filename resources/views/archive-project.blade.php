@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <main class="border-b border-border/50">
+    <main class="">
         <div class="container mx-auto pt-10 md:pt-20 pb-3 md:pb-6 px-6 border-l border-r border-border/50">
 
             {{-- Archive Header --}}
