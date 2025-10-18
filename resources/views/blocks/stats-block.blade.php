@@ -5,7 +5,7 @@
 @endunless
 
     @if (!empty($stats))
-      <div class="container mx-auto py-16 border-l border-r border-border/50 ">
+      <div class="container mx-auto py-10 border-l border-r border-border/50 ">
         @php
         $cols = min(count($stats), 4);
         $gridClass = match ($cols) {
