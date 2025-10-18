@@ -51,7 +51,7 @@
         if ($terms && !is_wp_error($terms)) {
         echo esc_html($terms[0]->name);
         }
-    @endphp
+      @endphp
         </span>
         <span class="text-xs text-muted-foreground">
         @php
@@ -59,9 +59,26 @@
         if ($project_date) {
         echo date('Y', strtotime($project_date));
         }
-    @endphp
+      @endphp
         </span>
         </div>
+      @endif
+
+          @if($post_type === 'service')
+            @php
+              $service_icon = get_field('service_icon',get_the_ID());
+              $icon_url = $service_icon['url'] ?? '';
+              $is_svg = $icon_url && str_ends_with($icon_url, '.svg');
+          @endphp
+
+          @if ($is_svg)
+            <span class="text-primary [&>svg]:h-8 [&>svg]:w-8 [&>svg]:text-muted-foreground [&>svg]:mb-4 ">
+              {!! file_get_contents($icon_url) !!}
+            </span>
+         @else
+          <img src="{{ $icon_url }}" class="h-5 w-5" />
+        @endif
+
       @endif
 
 
@@ -78,7 +95,7 @@
       } else {
       echo wp_trim_words(strip_tags(get_the_content()), 25, '...');
       }
-      @endphp
+    @endphp
           </p>
 
           {{-- Learn More --}}

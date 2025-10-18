@@ -29,6 +29,22 @@ return [
                 'with_front' => false
             ],
         ],
+        'service' => [
+            'enter_title_here' => 'Enter Service title',
+            'menu_icon' => 'dashicons-admin-site',
+            'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
+            'show_in_rest' => true,
+            'has_archive' => true,
+            'hierarchical' => true,
+            'labels' => [
+                'singular' => 'Service',
+                'plural' => 'Services',
+            ],
+            'rewrite' => [
+                'slug' => 'services',
+                'with_front' => false
+            ],
+        ],
     ],
 
     /*
