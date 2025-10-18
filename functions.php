@@ -67,3 +67,72 @@ add_action('enqueue_block_editor_assets', function () {
         null
     );
 });
+
+function enqueue_contact_form_scripts()
+{
+    if (!is_admin()) {
+        wp_enqueue_script('jquery');
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_contact_form_scripts');
+
+add_action('wp_ajax_handle_contact_form_ajax', 'handle_contact_form_ajax');
+add_action('wp_ajax_nopriv_handle_contact_form_ajax', 'handle_contact_form_ajax');
+
+function handle_contact_form_ajax()
+{
+    if (!isset($_POST['contact_form_nonce']) || !wp_verify_nonce($_POST['contact_form_nonce'], 'handle_contact_form')) {
+        wp_send_json_error('Invalid form submission (nonce failed).');
+    }
+
+    $name = sanitize_text_field($_POST['name'] ?? '');
+    $email = sanitize_email($_POST['email'] ?? '');
+    $message = sanitize_textarea_field($_POST['message'] ?? '');
+    $captcha = $_POST['cf-turnstile-response'] ?? '';
+
+    if (empty($name) || empty($email) || empty($message)) {
+        wp_send_json_error('Please fill all required fields.');
+    }
+
+    if (get_field('enable_captcha', 'option')) {
+        $secret_key = get_field('captcha_secret_key', 'option');
+        $response = wp_remote_post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+            'body' => [
+                'secret' => $secret_key,
+                'response' => $captcha,
+                'remoteip' => $_SERVER['REMOTE_ADDR'],
+            ],
+        ]);
+
+        $body = json_decode(wp_remote_retrieve_body($response), true);
+        if (empty($body['success'])) {
+            wp_send_json_error('Captcha verification failed. Please try again.');
+        }
+    }
+
+    $sender_email = get_field('contact_form_sender_email', 'option') ?: get_bloginfo('admin_email');
+    $receiver_email = get_field('contact_form_receiver_email', 'option');
+
+    $headers = [
+        'Content-Type: text/html; charset=UTF-8',
+        'From: ' . get_bloginfo('name') . ' <' . $sender_email . '>',
+        'Reply-To: ' . $email,
+    ];
+
+    $body = "
+        <h2>New Message from {$name}</h2>
+        <p><strong>Email:</strong> {$email}</p>
+        <p><strong>Message:</strong></p>
+        <p>{$message}</p>
+    ";
+
+    $mail_sent = wp_mail($receiver_email, $subject, $body, $headers);
+
+    if (!$mail_sent) {
+        wp_send_json_error('Something went wrong while sending your message. Please try again later.');
+    }
+
+    wp_send_json_success();
+}
+
+
