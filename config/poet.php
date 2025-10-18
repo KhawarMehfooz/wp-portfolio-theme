@@ -16,7 +16,7 @@ return [
         'project' => [
             'enter_title_here' => 'Enter Project title',
             'menu_icon' => 'dashicons-book-alt',
-            'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail'],
+            'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
             'show_in_rest' => true,
             'has_archive' => true,
             'hierarchical' => true,

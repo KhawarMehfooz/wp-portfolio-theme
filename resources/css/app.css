@@ -303,5 +303,25 @@
     background-color: var(--color-secondary);
   }
 
+  .pagination .page-numbers {
+    border-style: dashed;
+    border-width: 1px;
+    padding: 2px 8px;
+  }
+
+  .pagination .page-numbers:hover {
+    border-style: dashed;
+    border-width: 1px;
+    border-color: hsl(var(--color-border-hover));
+    padding: 2px 8px;
+  }
+
+  .pagination .page-numbers.current {
+    border-style: dashed;
+    border-width: 1px;
+    border-color: hsl(var(--color-border-hover));
+    padding: 2px 10px;
+  }
+
 
 }
