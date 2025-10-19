@@ -51,7 +51,7 @@
 
                     {{-- Title --}}
                     <h3 class="font-display text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                        {{ get_the_title() }}
+                        {!! html_entity_decode( get_the_title() ) !!}
                     </h3>
 
                     {{-- Excerpt / Description --}}
