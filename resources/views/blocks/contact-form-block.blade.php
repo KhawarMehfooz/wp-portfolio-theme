@@ -52,7 +52,7 @@
                             data-theme="light" data-size="normal">
                         </div>
                     @endif
-                    <div id="formMessage" class="hidden font-display text-sm p-3 rounded border"></div>
+                    <div id="formMessage" class="hidden font-display text-sm p-3 border-dashed-subtle-default"></div>
                 </div>
 
                 <button

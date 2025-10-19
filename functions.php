@@ -119,6 +119,8 @@ function handle_contact_form_ajax()
         'Reply-To: ' . $email,
     ];
 
+    $subject = "Contact Form - " . get_bloginfo('name');
+
     $body = "
         <h2>New Message from {$name}</h2>
         <p><strong>Email:</strong> {$email}</p>
