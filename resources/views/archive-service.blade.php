@@ -11,7 +11,7 @@
             </h1>
             @if (get_field('archive_description', 'options'))
             <p class="text-lg text-muted-foreground leading-relaxed m-0">
-                {{ get_field('archive_description', 'options') }}
+                {{ get_field('service_archive_description', 'options') }}
             </p>
             @endif
         </div>
