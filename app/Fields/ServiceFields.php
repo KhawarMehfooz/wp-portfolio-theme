@@ -20,6 +20,10 @@ class ServiceFields extends Field
         $fields
             ->addImage('service_icon',[
                 'required'=>true
+            ])
+            ->addRelationship('related_projects',[
+                'post_type'=>['project'],
+                'max'=>4
             ]);
 
         return $fields->build();
