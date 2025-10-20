@@ -1,7 +1,7 @@
 @unless ($block->preview)
-    <section {{ $attributes->merge(['class' => 'px-6 border-b border-border/50']) }}>
+    <section {{ $attributes->merge(['class' => 'px-3 border-b border-border/50']) }}>
     @else
-        <section class="px-6 border border-b border-border/50">
+        <section class="px-3 border border-b border-border/50">
         @endunless
 
         @if (!empty($stats))

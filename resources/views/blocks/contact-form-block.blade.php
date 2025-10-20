@@ -1,7 +1,7 @@
 @unless ($block->preview)
-    <section {{ $attributes->merge(['class' => ' border-border/50']) }}>
+    <section {{ $attributes->merge(['class' => 'px-3 border-border/50']) }}>
     @else
-        <section class="pt-7 px-6">
+        <section class="pt-7 px-3">
         @endunless
         <div class="container mx-auto py-10  border-border/50">
             <form id="contactForm" method="POST"

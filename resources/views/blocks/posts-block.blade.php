@@ -16,9 +16,9 @@
 @endphp
 
 @unless ($block->preview)
-    <section {{ $attributes->merge(['class' => 'px-6 border-b border-border/50']) }}>
+    <section {{ $attributes->merge(['class' => 'px-3 border-b border-border/50']) }}>
     @else
-        <section class="px-6 border border-b">
+        <section class="px-3 border border-b">
         @endunless
 
         <div class="container mx-auto border-l border-r border-border/50 py-10 px-3 md:px-6">

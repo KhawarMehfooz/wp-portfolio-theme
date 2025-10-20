@@ -1,7 +1,7 @@
 @unless ($block->preview)
-    <section {{ $attributes->merge(['class' => 'relative px-6 overflow-hidden border-b border-border/50']) }}>
+    <section {{ $attributes->merge(['class' => 'relative px-3 overflow-hidden border-b border-border/50']) }}>
     @else
-        <section class="relative px-6 overflow-hidden border-b">
+        <section class="relative px-3 overflow-hidden border-b">
         @endunless
 
         <div class="container mx-auto pt-30 pb-20 relative z-10 border-l border-r border-border/50 grid-background-7 ">

@@ -1,6 +1,6 @@
 <header x-data="{ open: false }"
-    class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/50 px-6">
-    <div class="container mx-auto border-l border-r border-border/50 px-6 py-2 md:py-4">
+    class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/50 px-3">
+    <div class="container mx-auto border-l border-r border-border/50 px-3 py-2 md:py-4">
         <div class="flex items-center justify-between">
             {{-- Brand / Site Name --}}
             <a href="{{ home_url('/') }}"
