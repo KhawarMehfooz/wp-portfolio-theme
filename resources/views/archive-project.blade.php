@@ -2,10 +2,10 @@
 
 @section('content')
     <main class="">
-        <div class="container mx-auto pt-10 md:pt-20 pb-3 md:pb-6 px-6 border-l border-r border-border/50">
+        <div class="container mx-auto pt-20 pb-3  px-3 border-l border-r border-border/50">
 
             {{-- Archive Header --}}
-            <div class="max-w-2xl animate-fade-in-up">
+            <div class="w-full md:max-w-2xl animate-fade-in-up">
                 <h1 class="font-display text-3xl md:text-5xl font-bold mb-3 md:mb-6">
                     {{ post_type_archive_title('', false) }}
                 </h1>
