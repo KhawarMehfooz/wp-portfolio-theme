@@ -174,10 +174,20 @@ class HeroBlock extends Block
                     'width' => '50%'
                 ],
             ])
+            ->addImage('primary_button_icon', [
+                'wrapper' => [
+                    'width' => '50%'
+                ]
+            ])
             ->addLink('secondary_button', [
                 'wrapper' => [
                     'width' => '50%'
                 ],
+            ])
+            ->addImage('secondary_button_icon', [
+                'wrapper' => [
+                    'width' => '50%'
+                ]
             ]);
 
         return $fields->build();
@@ -195,7 +205,9 @@ class HeroBlock extends Block
             'hero_heading' => get_field('hero_heading'),
             'hero_detail' => get_field('hero_detail'),
             'primary_button' => get_field('primary_button'),
+            'primary_button_icon' => get_field('primary_button_icon'),
             'secondary_button' => get_field('secondary_button'),
+            'secondary_button_icon' => get_field('secondary_button_icon'),
         ];
     }
 

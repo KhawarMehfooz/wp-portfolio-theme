@@ -4,8 +4,8 @@
         <section class="relative px-6 overflow-hidden border-b">
         @endunless
 
-        <div class="container mx-auto py-30 relative z-10 border-l border-r border-border/50 grid-background-7 ">
-            <div class="max-w-3xl mx-auto animate-fade-in-up text-center">
+        <div class="container mx-auto pt-30 pb-20 relative z-10 border-l border-r border-border/50 grid-background-7 ">
+            <div class="max-w-3xl mx-auto animate-fade-in-up text-center px-3">
                 <h1 class="font-display text-3xl md:text-4xl lg:text-6xl text-center font-bold mb-6 tracking-tight">
                     {{ $items['hero_heading'] }}
                 </h1>
@@ -14,22 +14,44 @@
                     {{ $items['hero_detail'] }}
                 </p>
 
-                <div class="flex gap-4 items-center justify-center">
+                <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
                     @if (!empty($items['primary_button']['url']))
+                        @php
+                            $icon_url = $items['primary_button_icon']['url'] ?? '';
+                            $is_svg = $icon_url && str_ends_with($icon_url, '.svg');
+                        @endphp
                         <a href="{{ esc_url($items['primary_button']['url']) }}"
-                            class="inline-flex items-center px-6 py-2 bg-primary text-white  font-medium hover:bg-background hover:text-primary border-1 border-transparent hover-border-dashed-subtle transition-all duration-300">
+                            class="[&>svg]:h-5 [&>svg]:w-5 inline-flex gap-2 items-center px-6 py-2 bg-primary text-white  font-medium hover:bg-background hover:text-primary border-1 border-transparent hover-border-dashed-subtle transition-all duration-300">
+                            @if ($is_svg)
+                                {{-- Inline SVG so Tailwind text colors apply --}}
+                                <span class="">
+                                    {!! file_get_contents($icon_url) !!}
+                                </span>
+                            @else
+                                {{-- Fallback for PNG/JPG icons --}}
+                                <img src="{{ $icon_url }}" class="h-5 w-5" />
+                            @endif
                             {{ esc_html($items['primary_button']['title']) }}
-                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 w-4 h-4" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
+
                         </a>
                     @endif
 
                     @if (!empty($items['secondary_button']['url']))
+                        @php
+                            $icon_url = $items['secondary_button_icon']['url'] ?? '';
+                            $is_svg = $icon_url && str_ends_with($icon_url, '.svg');
+                        @endphp
                         <a href="{{ esc_url($items['secondary_button']['url']) }}"
-                            class="inline-flex items-center px-6 py-2 border bg-background border-dashed border-primary text-primary  font-medium hover:bg-primary/10 transition-all duration-300">
+                            class="[&>svg]:h-5 [&>svg]:w-5 inline-flex gap-2 items-center px-6 py-2 border bg-background border-dashed border-primary text-primary  font-medium hover:bg-primary/10 transition-all duration-300">
+                            @if ($is_svg)
+                                {{-- Inline SVG so Tailwind text colors apply --}}
+                                <span class="">
+                                    {!! file_get_contents($icon_url) !!}
+                                </span>
+                            @else
+                                {{-- Fallback for PNG/JPG icons --}}
+                                <img src="{{ $icon_url }}" class="h-5 w-5" />
+                            @endif
                             {{ esc_html($items['secondary_button']['title']) }}
                         </a>
                     @endif
