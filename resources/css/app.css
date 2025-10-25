@@ -137,11 +137,16 @@
     text-decoration: none !important;
   }
 
-  ul, ol {
-  list-style: revert;
-  margin: revert;
-  padding: revert;
-}
+  ul,
+  ol {
+    list-style: revert;
+    margin: revert;
+    padding: revert;
+  }
+
+  footer ul {
+    list-style: none;
+  }
 
 }
 
