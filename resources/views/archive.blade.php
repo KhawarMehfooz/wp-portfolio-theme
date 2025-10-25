@@ -7,7 +7,7 @@
             {{-- Archive Header --}}
             <div class=" animate-fade-in-up">
                 <h1 class="font-display text-2xl md:text-4xl font-bold mb-3 md:mb-6">
-                    {!!  get_the_archive_title() !!}
+                    {!! get_the_archive_title() !!}
                 </h1>
             </div>
 
@@ -17,22 +17,25 @@
                     @while (have_posts())
                         @php the_post(); @endphp
 
-                        <article class="border border-dashed-subtle-default p-6 hover:border-primary hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group">
+                        <article
+                            class="border border-dashed-subtle-default p-6 hover:border-primary hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group">
                             {{-- Title --}}
-                            <h2 class="font-display text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                                <a href="{{ get_permalink() }}">
+                            <a href="{{ get_permalink() }}" class="khwr-no-underline group block">
+                                <h2
+                                    class="font-display text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
                                     {!! html_entity_decode(get_the_title()) !!}
-                                </a>
-                            </h2>
+                                </h2>
 
-                            {{-- Excerpt or Content --}}
-                            <div class="text-muted-foreground text-sm leading-relaxed">
-                                @if (has_excerpt())
-                                    {{ wp_trim_words(get_the_excerpt(), 30, '...') }}
-                                @else
-                                    {{ wp_trim_words(strip_tags(get_the_content()), 30, '...') }}
-                                @endif
-                            </div>
+
+                                {{-- Excerpt or Content --}}
+                                <div class="text-muted-foreground text-sm leading-relaxed">
+                                    @if (has_excerpt())
+                                        {{ wp_trim_words(get_the_excerpt(), 30, '...') }}
+                                    @else
+                                        {{ wp_trim_words(strip_tags(get_the_content()), 30, '...') }}
+                                    @endif
+                                </div>
+                            </a>
                         </article>
                     @endwhile
                 @else

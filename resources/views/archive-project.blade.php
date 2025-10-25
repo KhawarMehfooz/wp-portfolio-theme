@@ -37,7 +37,7 @@
                                 class="khwr-no-underline group block p-8 border border-dashed-subtle-default hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
 
                                 <div class="flex items-center justify-between mb-4">
-                                    <span class="text-xs font-medium text-primary">
+                                    <span class="px-2 py-1 text-xs bg-secondary text-foreground border-dashed-subtle-default">
                                         @php
                                             $terms = get_the_terms(get_the_ID(), 'project_category');
                                             if ($terms && !is_wp_error($terms)) {

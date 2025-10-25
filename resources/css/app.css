@@ -136,6 +136,13 @@
   .khwr-no-underline {
     text-decoration: none !important;
   }
+
+  ul, ol {
+  list-style: revert;
+  margin: revert;
+  padding: revert;
+}
+
 }
 
 @layer utilities {

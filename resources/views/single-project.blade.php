@@ -14,7 +14,7 @@
                     $p_cat = get_the_terms(get_the_ID(), 'project_category');
                 @endphp
                 @if ($p_cat && !is_wp_error($p_cat))
-                    <span class="text-sm font-semibold  text-primary">
+                    <span class="px-2 py-1 text-xs bg-secondary text-foreground border-dashed-subtle-default">
                         {{ $p_cat[0]->name }}
                     </span>
                 @endif
@@ -33,7 +33,7 @@
                     <div class="flex flex-wrap gap-2">
                         @foreach ($technologies as $tech)
                             <span
-                                class="px-3 py-1.5 font-sans font-medium bg-secondary text-foreground text-sm rounded-sm border border-dashed-subtle-default">
+                                class="px-3 py-1.5 font-sans font-medium bg-secondary text-foreground text-sm border border-dashed-subtle-default">
                                 {{ $tech->name }}
                             </span>
                         @endforeach
