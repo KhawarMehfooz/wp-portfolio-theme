@@ -48,7 +48,7 @@
                             <div class="grid md:grid-cols-2 gap-6">
                                 @foreach ($related_projects as $project)
                                     <a href="{{ get_permalink($project->ID) }}"
-                                        class="group block p-8 border border-dashed-subtle-default hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                                        class="khwr-no-underline group block p-8 border border-dashed-subtle-default hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
 
                                         {{-- Project Header --}}
                                         <div class="flex items-center justify-between mb-4">
