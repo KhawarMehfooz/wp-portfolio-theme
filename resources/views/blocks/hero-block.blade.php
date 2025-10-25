@@ -21,7 +21,7 @@
                             $is_svg = $icon_url && str_ends_with($icon_url, '.svg');
                         @endphp
                         <a href="{{ esc_url($items['primary_button']['url']) }}"
-                            class="[&>svg]:h-5 [&>svg]:w-5 inline-flex gap-2 items-center px-6 py-2 bg-primary text-white  font-medium hover:bg-background hover:text-primary border-1 border-transparent hover-border-dashed-subtle transition-all duration-300">
+                            class="khwr-no-underline [&>svg]:h-5 [&>svg]:w-5 inline-flex gap-2 items-center px-6 py-2 bg-primary text-white  font-medium hover:bg-background hover:text-primary border-1 border-transparent hover-border-dashed-subtle transition-all duration-300">
                             @if ($is_svg)
                                 {{-- Inline SVG so Tailwind text colors apply --}}
                                 <span class="">
@@ -42,7 +42,7 @@
                             $is_svg = $icon_url && str_ends_with($icon_url, '.svg');
                         @endphp
                         <a href="{{ esc_url($items['secondary_button']['url']) }}"
-                            class="[&>svg]:h-5 [&>svg]:w-5 inline-flex gap-2 items-center px-6 py-2 border bg-background border-dashed border-primary text-primary  font-medium hover:bg-primary/10 transition-all duration-300">
+                            class="khwr-no-underline [&>svg]:h-5 [&>svg]:w-5 inline-flex gap-2 items-center px-6 py-2 border bg-background border-dashed border-primary text-primary  font-medium hover:bg-primary/10 transition-all duration-300">
                             @if ($is_svg)
                                 {{-- Inline SVG so Tailwind text colors apply --}}
                                 <span class="">

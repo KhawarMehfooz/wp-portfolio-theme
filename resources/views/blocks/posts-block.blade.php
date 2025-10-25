@@ -40,7 +40,7 @@
                         @php $query->the_post(); @endphp
                         <div class="animate-fade-in">
                             <a href="{{ get_permalink() }}"
-                                class="group block p-8 border border-dashed-subtle-default hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                                class="khwr-no-underline group block p-8 border border-dashed-subtle-default hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
 
                                 @if ($post_type === 'project')
                                     <div class="flex items-center justify-between mb-4">
@@ -122,7 +122,7 @@
 
             {{-- View All Link --}}
             @if ($post_type)
-                <a class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                <a class="khwr-no-underline inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
                     href="{{ get_post_type_archive_link($post_type) }}">
                     View All {{ ucfirst($post_type) }}s
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

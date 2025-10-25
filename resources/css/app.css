@@ -133,7 +133,7 @@
     max-width: var(--container-max) !important;
   }
 
-  a {
+  .khwr-no-underline {
     text-decoration: none !important;
   }
 }

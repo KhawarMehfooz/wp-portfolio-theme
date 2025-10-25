@@ -3,7 +3,7 @@
         <div class="flex flex-col items-center text-center space-y-8">
             <div>
                 <a href="{{ home_url('/') }}"
-                    class="font-display text-2xl font-bold tracking-tight hover:text-primary transition-colors inline-block mb-3">
+                    class="khwr-no-underline font-display text-2xl font-bold tracking-tight hover:text-primary transition-colors inline-block mb-3">
                     {{ $siteName }}
                 </a>
                 <p class="text-sm text-muted-foreground max-w-md mx-auto">
@@ -29,7 +29,7 @@
                                     : 'text-muted-foreground hover:text-primary hover:underline underline-offset-4 font-medium transition-colors';
                     
                                 $output .= sprintf(
-                                    '<li><a href="%s" class="text-sm %s">%s</a></li>',
+                                    '<li><a href="%s" class="khwr-no-underline text-sm %s">%s</a></li>',
                                     esc_url($item->url),
                                     esc_attr($classes),
                                     esc_html($item->title),

@@ -33,7 +33,7 @@
             @while ($services->have_posts())
             @php $services->the_post(); @endphp
             <div class="animate-fade-in">
-                <a href="{{ get_permalink() }}" class="group block p-8 border border-dashed-subtle-default hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                <a href="{{ get_permalink() }}" class="khwr-no-underline group block p-8 border border-dashed-subtle-default hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
 
                     @php
                     $service_icon = get_field('service_icon', get_the_ID());

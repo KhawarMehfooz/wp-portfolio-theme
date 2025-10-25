@@ -14,7 +14,7 @@
 
             {{-- Back Link --}}
             <a href="/services"
-                class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
+                class="khwr-no-underline inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="lucide lucide-arrow-left w-4 h-4">

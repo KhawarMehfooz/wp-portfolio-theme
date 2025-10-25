@@ -4,7 +4,7 @@
         <div class="flex items-center justify-between">
             {{-- Brand / Site Name --}}
             <a href="{{ home_url('/') }}"
-                class="font-display text-xl font-bold tracking-tight hover:text-primary transition-colors">
+                class="font-display text-xl khwr-no-underline  font-bold tracking-tight hover:text-primary transition-colors">
                 {{ $siteName }}
             </a>
             {{-- Mobile Navigation --}}
@@ -35,10 +35,10 @@
                                 $is_current =
                                     in_array('current-menu-item', $item->classes) || in_array('current_page_item', $item->classes);
                                 $classes = $is_current
-                                    ? 'text-primary relative after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-primary'
+                                    ? 'text-primary relative khwr-no-underline after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-primary'
                                     : 'text-muted-foreground';
                                 $output .= sprintf(
-                                    '<a href="%s" class="text-sm font-medium transition-colors hover:text-primary %s">%s</a>',
+                                    '<a href="%s" class="text-sm khwr-no-underline font-medium transition-colors hover:text-primary %s">%s</a>',
                                     esc_url($item->url),
                                     esc_attr($classes),
                                     esc_html($item->title),
@@ -65,7 +65,7 @@
                             in_array('current-menu-item', $item->classes) || in_array('current_page_item', $item->classes);
                         $classes = $is_current ? 'text-primary font-medium' : 'text-muted-foreground';
                         $output .= sprintf(
-                            '<a href="%s" class="block text-base transition-colors hover:text-primary %s">%s</a>',
+                            '<a href="%s" class="block khwr-no-underline text-base transition-colors hover:text-primary %s">%s</a>',
                             esc_url($item->url),
                             esc_attr($classes),
                             esc_html($item->title),
