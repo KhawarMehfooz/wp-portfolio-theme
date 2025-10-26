@@ -2,11 +2,11 @@
 
 @section('content')
     <main class="">
-        <div class="container mx-auto pt-20 pb-3  px-3 border-l border-r border-border/50">
+        <div class="container mx-auto pt-20 md:pt-30 pb-3  px-3 border-l border-r border-border/50">
 
             {{-- Archive Header --}}
             <div class="w-full md:max-w-2xl animate-fade-in-up">
-                <h1 class="font-display text-3xl md:text-5xl font-bold mb-3 md:mb-6">
+                <h1 class="font-display text-2xl md:text-4xl font-bold mb-3 md:mb-6">
                     {{ post_type_archive_title('', false) }}
                 </h1>
                 @if (get_field('archive_description', 'options'))

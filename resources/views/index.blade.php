@@ -2,7 +2,7 @@
 
 @section('content')
     <main>
-        <div class="container mx-auto pt-10 md:pt-20 pb-3 md:pb-6 px-3 border-l border-r border-border/50">
+        <div class="container mx-auto pt-20 md:pt-30 pb-3 md:pb-6 px-3 border-l border-r border-border/50">
 
             <div class=" animate-fade-in-up">
                 <h1 class="font-display text-2xl md:text-4xl font-bold mb-3 md:mb-6">
