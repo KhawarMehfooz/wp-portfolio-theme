@@ -144,7 +144,7 @@
     padding: revert;
   }
 
-  footer ul {
+  footer ul, .khwr-ul {
     list-style: none;
     padding: 0;
   }
