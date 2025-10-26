@@ -1,98 +1,59 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="">
-    <div class="container mx-auto pt-20 md:pt-30 pb-3 px-3 border-l border-r border-border/50">
+    <main>
+        <div class="container mx-auto pt-20 md:pt-30 pb-3 px-3 border-l border-r border-border/50">
 
-        {{-- Archive Header --}}
-        <div class="w-full md:max-w-2xl animate-fade-in-up">
-            <h1 class="font-display text-2xl md:text-4xl font-bold mb-3 md:mb-6">
-                {{ post_type_archive_title('', false) }}
-            </h1>
-            @if (get_field('archive_description', 'options'))
-            <p class="text-lg text-muted-foreground leading-relaxed m-0">
-                {{ get_field('service_archive_description', 'options') }}
-            </p>
-            @endif
-        </div>
+            {{-- Archive Header --}}
+            <header class="w-full md:max-w-2xl mb-8 animate-fade-in-up">
+                <h1 class="font-display text-2xl md:text-4xl font-bold mb-3 md:mb-6">
+                    {{ post_type_archive_title('', false) }}
+                </h1>
 
-        {{-- Servics Grid --}}
-        <div class="grid md:grid-cols-2 gap-6 mt-3 md:mt-6">
+                @if (get_field('service_archive_description', 'options'))
+                    <p class="text-lg text-muted-foreground leading-relaxed m-0">
+                        {{ get_field('service_archive_description', 'options') }}
+                    </p>
+                @endif
+            </header>
+
+            {{-- Services Grid --}}
             @php
-            // Pagination setup
-            $paged = get_query_var('paged') ? get_query_var('paged') : 1;
-            $args = [
-            'post_type' => 'service',
-            'posts_per_page' => 6,
-            'paged' => $paged,
-            ];
-            $services = new WP_Query($args);
+                $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+                $args = [
+                    'post_type' => 'service',
+                    'posts_per_page' => 6,
+                    'paged' => $paged,
+                ];
+                $services = new WP_Query($args);
             @endphp
 
-            @if ($services->have_posts())
-            @while ($services->have_posts())
-            @php $services->the_post(); @endphp
-            <div class="animate-fade-in">
-                <a href="{{ get_permalink() }}" class="khwr-no-underline group block p-8 border border-dashed-subtle-default hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+            <section aria-labelledby="services-heading" class="mt-6">
+                <h2 id="services-heading" class="sr-only">Available Services</h2>
 
-                    @php
-                    $service_icon = get_field('service_icon', get_the_ID());
-                    $icon_url = $service_icon['url'] ?? '';
-                    $is_svg = $icon_url && str_ends_with($icon_url, '.svg');
-                    @endphp
-
-                    @if ($is_svg)
-                    <span class="text-primary [&>svg]:h-8 [&>svg]:w-8 [&>svg]:text-muted-foreground [&>svg]:mb-4 ">
-                        {!! file_get_contents($icon_url) !!}
-                    </span>
-                    @else
-                    <img src="{{ $icon_url }}" class="h-5 w-5" />
-                    @endif
-
-                    {{-- Title --}}
-                    <h3 class="font-display text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                        {!! html_entity_decode( get_the_title() ) !!}
-                    </h3>
-
-                    {{-- Excerpt / Description --}}
-                    <p class="text-muted-foreground text-sm leading-relaxed mb-4">
-                        @php
-                        if (has_excerpt()) {
-                        echo wp_trim_words(get_the_excerpt(), 25, '...');
-                        } else {
-                        echo wp_trim_words(strip_tags(get_the_content()), 25, '...');
-                        }
-                        @endphp
-                    </p>
-
-
-                    <div class="flex items-center gap-2 text-sm font-medium text-primary">
-                        Learn More
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 group-hover:translate-x-1 transition-transform">
-                            <path d="M5 12h14"></path>
-                            <path d="m12 5 7 7-7 7"></path>
-                        </svg>
+                @if ($services->have_posts())
+                    <div class="grid md:grid-cols-2 gap-6">
+                        @while ($services->have_posts())
+                            @php $services->the_post(); @endphp
+                            <x-service-card :post="get_post()" />
+                        @endwhile
                     </div>
-                </a>
-            </div>
-            @endwhile
 
-            @php wp_reset_postdata(); @endphp
-            @else
-            <p class="col-span-2 text-center text-muted-foreground">No services found.</p>
-            @endif
+                    {{-- Pagination --}}
+                    <nav class="pagination mt-12 flex justify-center gap-4" aria-label="Pagination">
+                        {!! paginate_links([
+                            'total' => $services->max_num_pages,
+                            'current' => max(1, get_query_var('paged')),
+                            'prev_text' => '&laquo;',
+                            'next_text' => '&raquo;',
+                        ]) !!}
+                    </nav>
+
+                    @php wp_reset_postdata(); @endphp
+                @else
+                    <p class="col-span-2 text-center text-muted-foreground">No services found.</p>
+                @endif
+            </section>
         </div>
-
-        {{-- Pagination --}}
-        <div class="pagination mt-8 flex justify-center gap-4">
-            {!! paginate_links([
-            'total' => $services->max_num_pages,
-            'current' => max(1, get_query_var('paged')),
-            'prev_text' => '&laquo;',
-            'next_text' => '&raquo;',
-            ]) !!}
-        </div>
-
-    </div>
-</main>
+    </main>
 @endsection
