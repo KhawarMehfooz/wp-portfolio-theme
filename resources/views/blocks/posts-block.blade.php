@@ -59,7 +59,7 @@
                     <a href="{{ get_post_type_archive_link($post_type) }}"
                         class="khwr-no-underline inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
                         View All {{ ucfirst($post_type) }}s
-                        <x-lucide-arrow-right class="w-4 h-4" />
+                        <x-icons.arrow-right class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                 </footer>
             @endif

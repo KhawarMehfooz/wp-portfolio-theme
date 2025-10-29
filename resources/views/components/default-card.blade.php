@@ -12,7 +12,7 @@
     {{-- Header --}}
     <header class="mb-3 flex items-center gap-4 text-xs text-muted-foreground">
         <div class="flex items-center gap-1.5">
-            <x-lucide-calendar class="w-3.5 h-3.5" aria-hidden="true" />
+            <x-icons.calender-days class="w-3.5 h-3.5" />
             <time datetime="{{ get_the_date('c', $post_id) }}">{{ $post_date }}</time>
         </div>
     </header>
@@ -40,7 +40,7 @@
             class="inline-flex khwr-no-underline items-center gap-2 text-sm font-medium text-primary"
             aria-label="Read more about {{ get_the_title($post) }}">
             Read More
-            <x-lucide-arrow-right class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+            <x-icons.arrow-right class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </a>
     </footer>
 
