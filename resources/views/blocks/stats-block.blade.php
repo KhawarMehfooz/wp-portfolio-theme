@@ -1,5 +1,5 @@
 @unless ($block->preview)
-    <section {{ $attributes->merge(['class' => 'px-3 border-b border-border/50']) }}>
+    <section {{ $attributes->merge([ 'id' => 'stats-block', 'class' => 'px-3 border-b border-border/50']) }}>
     @else
         <section class="px-3 border border-b border-border/50">
         @endunless
