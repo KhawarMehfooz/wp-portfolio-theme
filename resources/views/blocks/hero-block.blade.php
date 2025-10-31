@@ -4,7 +4,7 @@
         <section class="relative px-3 overflow-hidden border-b">
         @endunless
 
-        <div class="container mx-auto pt-30 pb-20 relative z-10 border-l border-r border-border/50 grid-background-7 ">
+        <div class="container mx-auto pt-30 pb-20 md:pt-40 md:pb-30 relative z-10 border-l border-r border-border/50 grid-background-7 ">
             <div class="max-w-3xl mx-auto animate-fade-in-up text-center px-3">
                 <h1 class="font-display text-3xl md:text-4xl lg:text-6xl text-center font-bold mb-6 tracking-tight">
                     {{ $items['hero_heading'] }}
