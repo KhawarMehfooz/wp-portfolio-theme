@@ -25,13 +25,13 @@
             </div>
 
             <h1 class="font-display text-4xl md:text-5xl font-bold mb-6">
-                {{ get_the_title() }}
+                {{ the_title() }}
             </h1>
         </header>
 
         {{-- Project Content --}}
         <div class="prose prose-neutral max-w-none mb-12">
-            {!! apply_filters('the_content', get_the_content()) !!}
+            {{ the_content() }}
         </div>
 
         {{-- Technologies Section --}}
