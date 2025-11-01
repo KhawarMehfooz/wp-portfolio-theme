@@ -30,7 +30,7 @@
             </h3>
 
             <p class="text-muted-foreground text-sm leading-relaxed mb-4">
-                {!! wp_trim_words(has_excerpt($post) ? get_the_excerpt($post) : strip_tags(get_the_content($post)), 25, '...') !!}
+                {!! wp_trim_words($post->post_excerpt ?: strip_tags($post->post_content), 25, '...') !!}
             </p>
         </div>
 
