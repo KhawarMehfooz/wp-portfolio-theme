@@ -4,7 +4,7 @@
     $terms = get_the_terms($post->ID, 'project_category');
     $term_name = $terms && !is_wp_error($terms) ? esc_html($terms[0]->name) : '';
     $project_date = get_field('project_date', $post->ID);
-    $year = $project_date ? date('Y', strtotime($project_date)) : '';
+    $year = ($project_date && ($d = DateTime::createFromFormat('d/m/Y', $project_date))) ? $d->format('Y') : '';
 @endphp
 
 <article class="animate-fade-in">

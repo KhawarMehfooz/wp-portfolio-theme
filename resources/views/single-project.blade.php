@@ -20,7 +20,7 @@
                 @endif
 
                 <time datetime="{{ get_field('project_date') }}" class="text-sm text-muted-foreground">
-                    {{ date('Y', strtotime(get_field('project_date'))) }}
+                    {{ DateTime::createFromFormat('d/m/Y', get_field('project_date'))->format('Y') }}
                 </time>
             </div>
 
