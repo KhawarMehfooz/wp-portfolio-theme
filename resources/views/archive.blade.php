@@ -2,7 +2,7 @@
 
 @section('content')
     <main>
-        <section class="container mx-auto pt-10 md:pt-20 pb-3 md:pb-6 px-3 border-l border-r border-border/50">
+        <section class="container mx-auto pt-20 md:pt-30 pb-3 md:pb-6 px-3 border-l border-r border-border/50">
 
             {{-- Archive Header --}}
             <header class="animate-fade-in-up mb-6 md:mb-8">
