@@ -10,6 +10,6 @@
   default => 'text-indigo-50 bg-indigo-400',
 })
 
-<div {{ $attributes->merge(['class' => "px-2 py-1 {$class}"]) }}>
+<div {{ $attributes->merge(['class' => "px-6 py-3 text-xl md:text-2xl font-display font-medium {$class} w-fit mx-auto"]) }}>
   {!! $message ?? $slot !!}
 </div>

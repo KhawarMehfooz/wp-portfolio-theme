@@ -1,15 +1,6 @@
-<article @php(post_class())>
-  <header>
-    <h2 class="entry-title">
-      <a href="{{ get_permalink() }}">
-        {!! $title !!}
-      </a>
-    </h2>
+<x-default-card :title="get_the_title()" :permalink="get_permalink()" :excerpt="has_excerpt()
+  ? wp_trim_words(get_the_excerpt(), 30, '...')
+  : wp_trim_words(strip_tags(get_the_content()), 30, '...')" />
 
-    @includeWhen(get_post_type() === 'post', 'partials.entry-meta')
-  </header>
 
-  <div class="entry-summary">
-    @php(the_excerpt())
-  </div>
-</article>
+
