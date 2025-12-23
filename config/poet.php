@@ -45,6 +45,22 @@ return [
                 'with_front' => false
             ],
         ],
+        'testimonial' => [
+            'enter_title_here' => 'Enter Testimonial Title',
+            'menu_icon' => 'dashicons-admin-site',
+            'supports' => ['title'],
+            'show_in_rest' => true,
+            'has_archive' => true,
+            'hierarchical' => true,
+            'labels' => [
+                'singular' => 'Testimonial',
+                'plural' => 'Testimonials',
+            ],
+            'rewrite' => [
+                'slug' => 'testimonial',
+                'with_front' => false
+            ],
+        ],
     ],
 
     /*
