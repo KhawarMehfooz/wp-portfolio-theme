@@ -5,21 +5,21 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use Log1x\AcfComposer\Builder;
 
-class TestimonialsBlock extends Block
+class FeedbackBlock extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Testimonials Block';
+    public $name = 'Feedback Block';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'Block for testimonials';
+    public $description = 'Block for Feedback';
 
     /**
      * The block category.
@@ -153,7 +153,7 @@ class TestimonialsBlock extends Block
      */
     public $template = [
         'core/heading' => ['placeholder' => 'Hello World'],
-        'core/paragraph' => ['placeholder' => 'Welcome to the Testimonials Block block.'],
+        'core/paragraph' => ['placeholder' => 'Welcome to the Feedback Block block.'],
     ];
 
     /**
@@ -171,16 +171,16 @@ class TestimonialsBlock extends Block
      */
     public function fields(): array
     {
-        $fields = Builder::make('testimonials_block');
+        $fields = Builder::make('feedback_block');
 
         $fields
-            ->addText('testimonial_section_title', [
+            ->addText('feedback_section_title', [
                 'default_value' => "What People Say About Me!"
             ])
-            ->addText('testimonial_section_description')
-            ->addRelationship('testimonials',[
-                'label'=> 'Select Testimonials',
-                'post_type'=> ['testimonial'],
+            ->addText('feedback_section_description')
+            ->addRelationship('feedbacks',[
+                'label'=> 'Select Feedback',
+                'post_type'=> ['feedback'],
                 'min' => 4,
                 'required'=> 1,
             ]);
@@ -195,7 +195,7 @@ class TestimonialsBlock extends Block
      */
     public function items()
     {
-        return get_field('testimonials') ?: $this->example['items'];
+        return get_field('feedbacks') ?: $this->example['items'];
     }
 
     /**
