@@ -37,6 +37,10 @@ class ThemeOptions extends Field
             ->addText('service_archive_description', [
                 'default_value' => 'Comprehensive web development services tailored to your needs. From initial concept to final deployment, I provide end-to-end solutions that deliver results.'
             ])
+            ->addTab('feedback_archive_page_settings')
+            ->addText('feedback_archive_description', [
+                'default_value' => 'Comprehensive web development services tailored to your needs. From initial concept to final deployment, I provide end-to-end solutions that deliver results.'
+            ])
             ->addTab('contact_form_block_settings')
             ->addEmail('contact_form_sender_email', [
                 'label' => 'Sender Email',

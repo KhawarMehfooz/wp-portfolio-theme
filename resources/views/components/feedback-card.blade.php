@@ -26,6 +26,7 @@
         'Netherlands' => 'NL',
         'Holland' => 'NL',
         'South Africa' => 'ZA',
+        'Turks and Caicos Islands' => 'TC',
     ];
 
     $iso = $country_map[$author_country] ?? null;

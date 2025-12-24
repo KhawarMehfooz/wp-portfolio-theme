@@ -57,7 +57,7 @@ return [
                 'plural' => 'Feedbacks',
             ],
             'rewrite' => [
-                'slug' => 'feedback',
+                'slug' => 'feedbacks',
                 'with_front' => false
             ],
         ],
