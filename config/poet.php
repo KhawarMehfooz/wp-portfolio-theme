@@ -15,7 +15,7 @@ return [
     'post' => [
         'project' => [
             'enter_title_here' => 'Enter Project title',
-            'menu_icon' => 'dashicons-book-alt',
+            'menu_icon' => 'dashicons-portfolio',
             'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
             'show_in_rest' => true,
             'has_archive' => true,
@@ -31,7 +31,7 @@ return [
         ],
         'service' => [
             'enter_title_here' => 'Enter Service title',
-            'menu_icon' => 'dashicons-admin-site',
+            'menu_icon' => 'dashicons-hammer',
             'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
             'show_in_rest' => true,
             'has_archive' => true,
@@ -47,7 +47,7 @@ return [
         ],
         'feedback' => [
             'enter_title_here' => 'Enter Feedback Title',
-            'menu_icon' => 'dashicons-admin-site',
+            'menu_icon' => 'dashicons-testimonial',
             'supports' => ['title'],
             'show_in_rest' => true,
             'has_archive' => true,
