@@ -18,7 +18,13 @@ class ProjectFields extends Field
             ->setLocation('post_type', '==', 'project');
 
         $fields
-            ->addDatePicker('project_date');
+            ->addDatePicker('project_date')
+            ->addRelationship('project_feedback',[
+                'post_type'=> 'feedback',
+                'min'=> 1,
+                'max'=> 1,
+                'return_format' => 'object',
+            ]);
 
         return $fields->build();
     }
