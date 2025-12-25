@@ -12,63 +12,63 @@
             </div>
 
             @if (has_nav_menu('primary_navigation'))
-                <nav class="w-full" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
-                    {!! wp_nav_menu([
-                        'theme_location' => 'primary_navigation',
-                        'container' => false,
-                        'menu_class' => 'flex flex-col md:flex-row md:justify-center gap-2 md:gap-4', // flex + responsive gap
-                        'echo' => false,
-                        'walker' => new class extends \Walker_Nav_Menu {
-                            function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
-                            {
-                                $is_current =
-                                    in_array('current-menu-item', $item->classes) || in_array('current_page_item', $item->classes);
-                    
-                                $classes = $is_current
-                                    ? 'text-primary font-medium underline underline-offset-4 decoration-2'
-                                    : 'text-muted-foreground hover:text-primary hover:underline underline-offset-4 font-medium transition-colors';
-                    
-                                $output .= sprintf(
-                                    '<li><a href="%s" class="khwr-no-underline text-sm %s">%s</a></li>',
-                                    esc_url($item->url),
-                                    esc_attr($classes),
-                                    esc_html($item->title),
-                                );
-                            }
-                        },
-                    ]) !!}
-                </nav>
+                        <nav class="w-full" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
+                            {!! wp_nav_menu([
+                    'theme_location' => 'primary_navigation',
+                    'container' => false,
+                    'menu_class' => 'flex flex-col md:flex-row md:justify-center gap-2 md:gap-4', // flex + responsive gap
+                    'echo' => false,
+                    'walker' => new class extends \Walker_Nav_Menu{
+                    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
+                    {
+                        $is_current =
+                            in_array('current-menu-item', $item->classes) || in_array('current_page_item', $item->classes);
+
+                        $classes = $is_current
+                            ? 'text-primary font-medium underline underline-offset-4 decoration-2'
+                            : 'text-muted-foreground hover:text-primary hover:underline underline-offset-4 font-medium transition-colors';
+
+                        $output .= sprintf(
+                            '<li><a href="%s" class="khwr-no-underline text-sm %s">%s</a></li>',
+                            esc_url($item->url),
+                            esc_attr($classes),
+                            esc_html($item->title),
+                        );
+                    }
+                    },
+                ]) !!}
+                        </nav>
             @endif
 
 
             @php
                 $social_links = get_field('footer_social_links', 'option');
             @endphp
+            @if($social_links)
+                <div class="flex items-center gap-6">
+                    @foreach ($social_links as $social)
+                        @php
+                            $icon_url = $social['social_icon']['url'] ?? '';
+                            $is_svg = $icon_url && str_ends_with($icon_url, '.svg');
+                        @endphp
 
-            <div class="flex items-center gap-6">
-                @foreach ($social_links as $social)
-                    @php
-                        $icon_url = $social['social_icon']['url'] ?? '';
-                        $is_svg = $icon_url && str_ends_with($icon_url, '.svg');
-                    @endphp
+                        <a href="{{ $social['social_link'] }}" target="_blank" rel="noopener noreferrer"
+                            aria-label="{{ $social['social_label'] }}"
+                            class="text-muted-foreground hover:text-primary transition-all hover:scale-110 h-5 w-5 flex items-center justify-center">
 
-                    <a href="{{ $social['social_link'] }}" target="_blank" rel="noopener noreferrer"
-                        aria-label="{{ $social['social_label'] }}"
-                        class="text-muted-foreground hover:text-primary transition-all hover:scale-110 h-5 w-5 flex items-center justify-center">
-
-                        @if ($is_svg)
-                            {{-- Inline SVG so Tailwind text colors apply --}}
-                            <span class="">
-                                {!! file_get_contents($icon_url) !!}
-                            </span>
-                        @else
-                            {{-- Fallback for PNG/JPG icons --}}
-                            <img src="{{ $icon_url }}" alt="{{ $social['social_label'] }}" class="h-5 w-5" />
-                        @endif
-                    </a>
-                @endforeach
-            </div>
-
+                            @if ($is_svg)
+                                {{-- Inline SVG so Tailwind text colors apply --}}
+                                <span class="">
+                                    {!! file_get_contents($icon_url) !!}
+                                </span>
+                            @else
+                                {{-- Fallback for PNG/JPG icons --}}
+                                <img src="{{ $icon_url }}" alt="{{ $social['social_label'] }}" class="h-5 w-5" />
+                            @endif
+                        </a>
+                    @endforeach
+                </div>
+            @endif
         </div>
 
 
