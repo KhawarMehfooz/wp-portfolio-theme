@@ -70,11 +70,13 @@
                 <p class="font-medium text-sm leading-none">
                     {{ $author_name }}
                 </p>
-                <p class="flex items-center gap-1 text-sm text-muted-foreground mt-1">
-                    @if ($flag)
-                        <span class="leading-none">{{ $flag }}</span>
+                <p class="flex items-center gap-1.5 text-sm text-muted-foreground mt-1">
+                    @if ($iso)
+                        <img src="https://flagcdn.com/16x12/{{ strtolower($iso) }}.png"
+                            srcset="https://flagcdn.com/32x24/{{ strtolower($iso) }}.png 2x" width="16" height="12"
+                            alt="{{ $author_country }} flag" class="inline-block">
                     @endif
-                    <span class="">{{ $author_country }}</span>
+                    <span>{{ $author_country }}</span>
                 </p>
 
             </div>
